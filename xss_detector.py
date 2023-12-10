@@ -21,6 +21,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
+from keras.metrics import Precision,Recall,AUC
 
 """## Upload Dataset
 
@@ -73,7 +74,7 @@ model.add(Dense(1, activation='relu'))
 
 """## Compile the Model:"""
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy',Precision(),Recall(),AUC(curve='ROC')])
 
 """## Fit Dataset into the Model:"""
 
